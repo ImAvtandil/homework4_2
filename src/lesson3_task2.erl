@@ -7,8 +7,6 @@ words(String) ->
 
 words(<<S/utf8, 32, T/binary>>, AccBin, Acc) ->
     words(T, <<>>, [<<AccBin/binary, S/utf8>> | Acc]);
-words(<<32, T/binary>>, AccBin, Acc) ->
-    words(T, AccBin, Acc);
 words(<<S/utf8, T/binary>>, AccBin, Acc) ->
     words(T, <<AccBin/binary, S/utf8>>, Acc);
 words(<<>>, AccBin, Acc) ->
